@@ -1,0 +1,42 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OdevGorsel.HaberlerPage"
+             Title="Haberler">
+    <ContentPage.ToolbarItems>
+        
+        <ToolbarItem IconImageSource="refresh.png" Text="Yenile" Order="Primary" Priority="0" Clicked="OnRefreshClicked" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+       
+        <CollectionView x:Name="KategoriCollectionView" SelectionMode="Single" SelectionChanged="OnKategoriSelected">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="5" BorderColor="Gray" BackgroundColor="{Binding BackgroundColor}">
+                        <Label Text="{Binding Baslik}" TextColor="Black" />
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        
+        <CollectionView x:Name="HaberCollectionView" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" Margin="10">
+                        <StackLayout>
+                            <Image Source="{Binding Image}" HeightRequest="200" Aspect="AspectFill" />
+                            <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding PublishDate}" FontSize="14" TextColor="Gray" />
+                            <Label Text="{Binding Description}" LineBreakMode="WordWrap" />
+                            <Button Text="Paylaş" Clicked="OnShareClicked" CommandParameter="{Binding Link}" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

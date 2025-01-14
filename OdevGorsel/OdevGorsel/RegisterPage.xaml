@@ -1,0 +1,58 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OdevGorsel.RegisterPage"
+             Title="Register">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="10">
+            <Frame Padding="10" CornerRadius="10" BackgroundColor="White">
+                <StackLayout Spacing="10">
+                    <Label Text="Kaydol" FontSize="24" HorizontalOptions="Center" TextColor="#6200EE" />
+
+                   
+                    <Entry Placeholder="Kullanıcı Adı" 
+                           x:Name="UsernameEntry" 
+                           BackgroundColor="White" 
+                           TextColor="Black" 
+                           FontSize="16" 
+                           HeightRequest="50" />
+
+                    
+                    <Entry Placeholder="Email" 
+                           x:Name="EmailEntry" 
+                           BackgroundColor="White" 
+                           TextColor="Black" 
+                           FontSize="16" 
+                           Keyboard="Email" 
+                           HeightRequest="50" />
+
+                  
+                    <Entry Placeholder="Password" 
+                           x:Name="PasswordEntry" 
+                           BackgroundColor="White" 
+                           TextColor="Black" 
+                           FontSize="16" 
+                           IsPassword="True" 
+                           HeightRequest="50" />
+
+                    
+                    <Button Text="Kaydol" 
+                            BackgroundColor="#6200EE" 
+                            TextColor="White" 
+                            FontSize="18" 
+                            CornerRadius="10" 
+                            HeightRequest="50" 
+                            Clicked="OnRegisterClicked" />
+
+                    
+                    <Label Text="Zaten bir hesabım var" 
+                           TextColor="Blue" 
+                           HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNavigateToLogin" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
